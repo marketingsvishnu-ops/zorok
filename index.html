@@ -1,396 +1,457 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AURA PERFORMANCE | Train Beyond Limits</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<title>Demo</title>
+
 <style>
-:root {
-  --green:#b8f36b;
-  --dark:#101710;
-  --muted:#687267;
-  --paper:#f4f6f0;
-  --white:#fff;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+
 body{
-  font-family:'DM Sans',sans-serif;
-  background:var(--paper);
-  color:var(--dark);
-  overflow-x:hidden;
+  background:#f1f1f1;
+  color:#111;
 }
-a{text-decoration:none;color:inherit}
-button{font:inherit;cursor:pointer}
-nav{
-  height:82px;padding:0 7%;
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(244,246,240,.92);
-  position:sticky;top:0;z-index:100;
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid #dfe5d9;
+
+.container{
+  display:flex;
+  flex-direction:row-reverse;
+  min-height:100vh;
 }
-.logo{
-  font:900 25px 'Outfit',sans-serif;
-  letter-spacing:-1.5px;
+
+.demo{
+  width:70%;
+  background:linear-gradient(180deg,#f4f4f4,#ececec);
+  position:relative;
 }
-.logo span{color:#659b35}
-.navlinks{display:flex;gap:32px;align-items:center}
-.navlinks a{font-size:13px;font-weight:700;color:#536052;transition:.2s}
-.navlinks a:hover{color:#659b35}
-.nav-cta,.btn{
-  background:var(--dark);color:white;padding:14px 23px;
-  border-radius:5px;font-size:12px;font-weight:800;
-  letter-spacing:1px;text-transform:uppercase;
-  border:0;display:inline-block;transition:.25s;
+
+iframe{
+  width:100%;
+  height:100vh;
+  border:none;
+  background:#0a0d14;
 }
-.nav-cta:hover,.btn:hover{background:#659b35;transform:translateY(-3px)}
-.menu{display:none;background:none;border:0;font-size:26px}
-.hero{
-  min-height:690px;padding:90px 7% 75px;
-  display:grid;grid-template-columns:1.05fr .95fr;
-  align-items:center;gap:35px;
-  background:
-  radial-gradient(circle at 80% 40%,#dcebcf 0,transparent 34%),
-  var(--paper);
+
+.right{
+  width:30%;
+  padding:30px 22px;
+  background:linear-gradient(180deg,#f0f0f0,#e8e8e8);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow-y:auto;
 }
-.eyebrow{
-  display:inline-flex;align-items:center;gap:9px;
-  color:#659b35;font-size:11px;font-weight:800;
-  letter-spacing:2.5px;text-transform:uppercase;margin-bottom:25px;
+
+.box{
+  width:100%;
+  background:#fff;
+  border:1px solid #d92339;
+  border-radius:22px;
+  padding:26px 20px;
+  text-align:center;
+  box-shadow:0 0 30px rgba(217,35,57,.15);
 }
-.eyebrow:before{content:"";width:25px;height:2px;background:#83b64c}
+
+.badge{
+  display:inline-block;
+  background:linear-gradient(135deg,#e9223f,#b90f2f);
+  color:#fff;
+  padding:8px 18px;
+  border-radius:30px;
+  font-weight:800;
+  margin-bottom:16px;
+}
+
 h1{
-  font:900 clamp(55px,7vw,100px)/.94 'Outfit',sans-serif;
-  letter-spacing:-5px;max-width:700px;
+  font-size:34px;
+  color:#111;
+  margin-bottom:10px;
+  text-transform:uppercase;
 }
-h1 span{color:#79a94d}
-.hero-copy{
-  color:var(--muted);font-size:16px;line-height:1.8;
-  max-width:460px;margin:28px 0 32px;
+
+.sub{
+  font-size:17px;
+  line-height:1.5;
+  margin-bottom:22px;
+  color:#1d1d1d;
 }
-.hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-.btn-green{background:var(--green);color:#182316}
-.btn-green:hover{background:#a2e44c}
-.text-link{font-size:12px;font-weight:800;border-bottom:1px solid #899583;padding-bottom:5px}
-.hero-stats{display:flex;gap:35px;margin-top:55px}
-.stat strong{font:800 27px 'Outfit';display:block}
-.stat small{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
-.hero-art{
-  height:500px;position:relative;display:grid;place-items:center;
+
+.features{
+  display:grid;
+  gap:12px;
+  margin:22px 0;
 }
-.orbit{
-  width:min(420px,90%);aspect-ratio:1;border-radius:50%;
-  background:linear-gradient(140deg,#d5e7c5,#fdfefb 55%,#a8c68f);
-  box-shadow:inset -22px -22px 55px #a4bd94,inset 15px 15px 40px white,0 35px 70px #a6b99b66;
-  position:relative;animation:float 6s ease-in-out infinite;
+
+.feature{
+  background:#fff;
+  border:1px solid #d92339;
+  padding:14px;
+  border-radius:14px;
+  font-size:17px;
+  font-weight:700;
+  color:#111;
 }
-.orbit:before{
-  content:"";position:absolute;inset:11%;border:1px solid #ffffffa8;border-radius:50%;
-  transform:rotateX(68deg) rotateZ(-25deg) scale(1.3);
+
+.feature span{
+  color:#d92339;
 }
-.orbit:after{
-  content:"";position:absolute;inset:24%;border:13px solid #ffffff66;
-  border-radius:50%;transform:rotateX(65deg) rotateZ(35deg);
-}
-.core{
-  position:absolute;width:125px;height:125px;border-radius:28px;
-  background:linear-gradient(135deg,#fff,#c9e5b3 60%,#719b58);
-  box-shadow:20px 25px 40px #567b4a55,inset -8px -8px 20px #8bb978;
-  transform:rotate(35deg);z-index:2;
-  animation:spin 18s linear infinite;
-}
-.core:before,.core:after{
-  content:"";position:absolute;background:#ffffff88;border-radius:50%;
-}
-.core:before{width:35px;height:35px;top:18px;left:18px}
-.core:after{width:18px;height:18px;bottom:20px;right:20px}
-.float-tag{
-  position:absolute;background:#fff;padding:14px 18px;
-  border-radius:8px;box-shadow:0 15px 35px #293c2518;
-  font-size:11px;font-weight:800;z-index:4;
-}
-.tag-one{top:70px;left:0}
-.tag-two{bottom:70px;right:0}
-.tag-dot{display:inline-block;width:8px;height:8px;background:#83c64e;border-radius:50%;margin-right:7px}
-@keyframes float{50%{transform:translateY(-15px)}}
-@keyframes spin{to{transform:rotate(395deg)}}
-.ticker{
-  background:var(--dark);color:var(--green);padding:18px 0;
-  overflow:hidden;white-space:nowrap;font:800 15px 'Outfit';
-  letter-spacing:3px;
-}
-.ticker-track{display:inline-block;animation:marquee 25s linear infinite}
-@keyframes marquee{to{transform:translateX(-50%)}}
-section{padding:105px 7%}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:45px}
-.kicker{font-size:11px;font-weight:800;letter-spacing:2px;color:#659b35;text-transform:uppercase;margin-bottom:14px}
-h2{font:800 clamp(36px,5vw,58px)/1 'Outfit';letter-spacing:-2px}
-.section-head p{max-width:350px;color:var(--muted);font-size:13px;line-height:1.8}
-.programs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.program{
-  min-height:310px;padding:30px;border-radius:10px;
-  background:#e5ebdf;position:relative;overflow:hidden;
+
+/* Signup Button */
+.signup-btn{
+  display:inline-block;
+  margin-top:8px;
+  padding:9px 16px;
+  background:linear-gradient(180deg,#e6223d,#b80d2d);
+  color:#fff;
+  text-decoration:none;
+  border-radius:9px;
+  font-size:15px;
+  font-weight:800;
+  border:1px solid #9c0a26;
   transition:.3s;
 }
-.program:hover{transform:translateY(-8px);background:#dce8d2}
-.program:nth-child(2){background:#dce8d2}
-.program:nth-child(3){background:#e8e8df}
-.program-num{font-size:11px;color:#6d8067;font-weight:800;letter-spacing:2px}
-.program h3{font:800 27px 'Outfit';margin-top:90px;position:relative;z-index:2}
-.program p{font-size:12px;color:#62705e;line-height:1.7;margin-top:10px;max-width:240px;position:relative;z-index:2}
-.program-icon{
-  position:absolute;right:20px;top:25px;font-size:80px;
-  color:#78956b55;font-weight:900;transform:rotate(-12deg);
+
+.signup-btn:hover{
+  background:linear-gradient(180deg,#ce1835,#9b0d28);
+  transform:scale(1.03);
 }
-.about{
-  background:var(--dark);color:white;
-  display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;
+
+.website-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-top:16px;
+  font-size:14px;
+  font-weight:bold;
 }
-.about-visual{
-  min-height:430px;border-radius:10px;
-  background:linear-gradient(145deg,#263a26,#111b13);
-  display:grid;place-items:center;position:relative;overflow:hidden;
+
+.website-row a{
+  text-decoration:none;
 }
-.about-visual:before{
-  content:"";width:300px;height:300px;border:1px solid #b8f36b66;
-  border-radius:50%;position:absolute;box-shadow:0 0 0 40px #b8f36b0b,0 0 0 80px #b8f36b08;
+
+.website{
+  color:#d92339;
 }
-.about-visual span{
-  font:900 65px 'Outfit';color:var(--green);
-  letter-spacing:-5px;z-index:1;transform:rotate(-8deg);
+
+.whatsapp-small{
+  color:#d92339;
 }
-.about-copy p{color:#a9b5a5;line-height:1.9;font-size:14px;margin:25px 0}
-.features{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:30px 0}
-.feature{border-top:1px solid #384637;padding-top:16px}
-.feature strong{display:block;color:var(--green);font:700 17px 'Outfit'}
-.feature small{color:#a9b5a5;font-size:11px}
-.pricing{background:#edf1e9}
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.plan{
-  background:white;padding:32px;border-radius:10px;
-  border:1px solid #e2e8de;position:relative;
+
+.cta{
+  display:block;
+  background:linear-gradient(180deg,#eb203c,#bc1233);
+  color:#fff;
+  text-decoration:none;
+  padding:17px;
+  border-radius:16px;
+  font-size:20px;
+  font-weight:900;
+  margin-top:22px;
+  box-shadow:0 8px 18px rgba(217,35,57,.3);
+  transition:.3s;
 }
-.plan.featured{background:var(--dark);color:white;transform:translateY(-12px);border:0}
-.plan-label{font-size:10px;font-weight:800;letter-spacing:2px;color:#659b35}
-.plan h3{font:800 25px 'Outfit';margin:18px 0}
-.price{font:900 43px 'Outfit';letter-spacing:-2px}
-.price small{font:500 12px 'DM Sans';color:#849080;letter-spacing:0}
-.plan ul{list-style:none;margin:25px 0}
-.plan li{font-size:12px;padding:11px 0;border-bottom:1px solid #89908030;color:inherit}
-.plan li:before{content:"✓";color:#76ad47;font-weight:900;margin-right:10px}
-.plan .btn{width:100%;text-align:center}
-.bmi{
-  display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:center;
+
+.cta:hover{
+  transform:scale(1.03);
+  background:linear-gradient(180deg,#d51b35,#a60c29);
 }
-.bmi-box{background:white;border-radius:12px;padding:35px;box-shadow:0 15px 45px #20351a0b}
-.field{margin-bottom:18px}
-.field label{font-size:11px;font-weight:800;display:block;margin-bottom:8px}
-.field input{
-  width:100%;padding:15px;border:1px solid #dfe5d9;
-  background:#f8faf6;border-radius:5px;font:inherit;outline:none;
+
+/* Floating Signup Button */
+.floating-signup{
+  position:absolute;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:50;
+  background:linear-gradient(180deg,#e9223f,#b80f2f);
+  color:#fff;
+  padding:12px 24px;
+  border-radius:8px;
+  font-size:18px;
+  font-weight:900;
+  border:3px solid #f4e7b8;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(217,35,57,0.5);
+  transition:.3s;
+  text-decoration:none;
+  display:inline-block;
 }
-.field input:focus{border-color:#79a94d}
-.bmi-result{margin-top:20px;padding:17px;background:#eff5e9;border-radius:6px;display:none}
-.bmi-result strong{font:800 27px 'Outfit';color:#659b35}
-footer{
-  padding:45px 7%;background:#101710;color:white;
-  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+
+.floating-signup:hover{
+  transform:translateX(-50%) scale(1.08);
+  background:linear-gradient(180deg,#d81d39,#9d0b26);
+  box-shadow:0 12px 25px rgba(217,35,57,0.7);
 }
-footer p{font-size:11px;color:#9aa695}
-@media(max-width:850px){
- .hero{grid-template-columns:1fr;padding-top:65px}
- .hero-art{height:400px}
- .about,.bmi{grid-template-columns:1fr}
- .programs,.plans{grid-template-columns:1fr 1fr}
- .section-head{align-items:start;flex-direction:column}
+
+.trust{
+  margin-top:16px;
+  color:#222;
+  font-size:14px;
+  line-height:1.5;
 }
-@media(max-width:600px){
- nav{padding:0 5%;height:70px}
- .menu{display:block}
- .navlinks{
-  display:none;position:absolute;top:70px;left:0;width:100%;
-  background:var(--paper);padding:25px;flex-direction:column;
-  border-bottom:1px solid #ddd;
- }
- .navlinks.open{display:flex}
- .nav-cta{display:none}
- .hero{padding:65px 6% 45px}
- h1{letter-spacing:-3px}
- .hero-stats{gap:20px}
- .hero-art{height:330px}
- .tag-one{top:20px}.tag-two{bottom:25px}
- section{padding:75px 6%}
- .programs,.plans{grid-template-columns:1fr}
- .plan.featured{transform:none}
- .about-visual{min-height:300px}
- .about-visual span{font-size:50px}
- .bmi-box{padding:23px}
+
+.footer{
+  margin-top:18px;
+  font-size:12px;
+  color:#555;
+  line-height:1.5;
+}
+
+.bonus-popup{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:grid;
+  place-items:center;
+  padding:20px;
+  background:rgba(0,0,0,.78);
+}
+
+.bonus-popup[hidden]{
+  display:none;
+}
+
+.bonus-dialog{
+  position:relative;
+  width:min(100%,420px);
+  padding:34px 24px 28px;
+  border:2px solid #d92339;
+  border-radius:16px;
+  background:linear-gradient(145deg,#fff,#f2f2f2 70%);
+  text-align:center;
+  box-shadow:0 18px 60px rgba(0,0,0,.25);
+  animation:popup-enter .24s ease-out;
+}
+
+.bonus-close{
+  position:absolute;
+  top:8px;
+  right:12px;
+  border:0;
+  background:transparent;
+  color:#333;
+  font-size:28px;
+  line-height:1;
+  cursor:pointer;
+}
+
+.bonus-dialog h2{
+  margin-bottom:10px;
+  color:#111;
+  font-size:30px;
+}
+
+.bonus-dialog p{
+  margin-bottom:22px;
+  color:#222;
+  line-height:1.5;
+}
+
+.bonus-claim{
+  display:block;
+  padding:14px 18px;
+  border-radius:8px;
+  background:linear-gradient(180deg,#eb203c,#bc1233);
+  color:#fff;
+  font-size:17px;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.bonus-claim:hover{
+  background:linear-gradient(180deg,#d51b35,#a60c29);
+}
+
+@keyframes popup-enter{
+  from{opacity:0;transform:translateY(10px) scale(.97)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .bonus-dialog{animation:none}
+}
+
+@media(max-width:768px){
+  .container{
+    flex-direction:column-reverse;
+  }
+
+  .demo,
+  .right{
+    width:100%;
+  }
+
+  iframe{
+    height:500px;
+  }
+
+  .right{
+    padding:20px;
+  }
+}
+
+@media(max-width:480px){
+  h1{
+    font-size:28px;
+  }
+
+  .sub{
+    font-size:16px;
+  }
+
+  .feature{
+    font-size:16px;
+    padding:12px;
+  }
+
+  .signup-btn{
+    font-size:14px;
+    padding:8px 13px;
+  }
+
+  .cta{
+    font-size:18px;
+    padding:15px;
+  }
+
+  .website-row{
+    flex-direction:column;
+    gap:8px;
+  }
 }
 </style>
+
 </head>
+
 <body>
 
-<nav>
-  <a href="#" class="logo">AURA<span>.</span></a>
-  <button class="menu" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
-  <div class="navlinks" id="navlinks">
-    <a href="#programs" onclick="closeMenu()">PROGRAMS</a>
-    <a href="#about" onclick="closeMenu()">OUR STUDIO</a>
-    <a href="#pricing" onclick="closeMenu()">MEMBERSHIP</a>
-    <a href="#bmi" onclick="closeMenu()">BMI TOOL</a>
+<div class="bonus-popup" id="bonusPopup" role="dialog" aria-modal="true" aria-labelledby="bonusTitle">
+  <div class="bonus-dialog">
+    <button class="bonus-close" id="bonusClose" type="button" aria-label="Close bonus popup">&times;</button>
+    <h2 id="bonusTitle">Claim 10% Bonus</h2>
+    <p>Sign up now and get started with the deposit bonus.</p>
+    <a class="bonus-claim" href="https://ballysbat.com/clk?src=MtH8kmxgY">🔥 Claim Bonus &amp; Sign Up</a>
   </div>
-  <a href="#pricing" class="nav-cta">JOIN AURA ↗</a>
-</nav>
-
-<header class="hero">
-  <div>
-    <div class="eyebrow">THE NEW STANDARD OF FITNESS</div>
-    <h1>MOVE WITH <span>PURPOSE.</span></h1>
-    <p class="hero-copy">A smarter approach to strength, movement and wellbeing. Discover a training experience designed around your goals and built for your next level.</p>
-    <div class="hero-actions">
-      <a href="#pricing" class="btn btn-green">Explore Membership →</a>
-      <a href="#programs" class="text-link">DISCOVER PROGRAMS</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><strong>12+</strong><small>Expert Coaches</small></div>
-      <div class="stat"><strong>30+</strong><small>Weekly Classes</small></div>
-      <div class="stat"><strong>2K+</strong><small>Active Members</small></div>
-    </div>
-  </div>
-  <div class="hero-art">
-    <div class="orbit"><div class="core"></div></div>
-    <div class="float-tag tag-one"><span class="tag-dot"></span> PERFORMANCE FIRST</div>
-    <div class="float-tag tag-two">01 / TRAIN DIFFERENTLY</div>
-  </div>
-</header>
-
-<div class="ticker">
-  <div class="ticker-track">STRENGTH • BALANCE • PERFORMANCE • RECOVERY • COMMUNITY • STRENGTH • BALANCE • PERFORMANCE • RECOVERY • COMMUNITY • </div>
 </div>
 
-<section id="programs">
-  <div class="section-head">
-    <div><div class="kicker">01 / WHAT WE DO</div><h2>TRAIN YOUR WAY.</h2></div>
-    <p>Every body is different. Our training experiences are designed to help you build strength, improve movement and stay consistent.</p>
-  </div>
-  <div class="programs">
-    <article class="program">
-      <div class="program-num">01 — BUILD</div><div class="program-icon">✳</div>
-      <h3>Strength Lab</h3>
-      <p>Progressive resistance training to build strength, muscle and confidence.</p>
-    </article>
-    <article class="program">
-      <div class="program-num">02 — MOVE</div><div class="program-icon">◎</div>
-      <h3>Functional Fitness</h3>
-      <p>Dynamic workouts that develop mobility, endurance and everyday performance.</p>
-    </article>
-    <article class="program">
-      <div class="program-num">03 — RESET</div><div class="program-icon">◈</div>
-      <h3>Mind & Recovery</h3>
-      <p>Stretching, mobility and recovery sessions to help you feel your best.</p>
-    </article>
-  </div>
-</section>
+<div class="container">
 
-<section class="about" id="about">
-  <div class="about-visual"><span>FEEL<br>THE<br>DIFFERENCE.</span></div>
-  <div class="about-copy">
-    <div class="kicker">02 / THE AURA EXPERIENCE</div>
-    <h2>MORE THAN<br>A WORKOUT.</h2>
-    <p>We believe fitness should fit your life. AURA brings together expert coaching, thoughtful programming and an uplifting environment to make every session count.</p>
-    <div class="features">
-      <div class="feature"><strong>01 / COACHING</strong><small>Guidance that moves you forward.</small></div>
-      <div class="feature"><strong>02 / COMMUNITY</strong><small>Better together, every day.</small></div>
-      <div class="feature"><strong>03 / EQUIPMENT</strong><small>Purpose-built training spaces.</small></div>
-      <div class="feature"><strong>04 / PROGRESS</strong><small>Celebrate every milestone.</small></div>
+  <div class="demo">
+    <a href="https://ballysbat.com/clk?src=MtH8kmxgY" target="_blank" rel="noopener noreferrer" class="floating-signup">🔥 CLICK ON SIGNUP 🔥</a>
+    <iframe src="https://ballysbat.com/clk?src=MtH8kmxgY"></iframe>
+  </div>
+
+  <div class="right">
+    <div class="box">
+
+  <div class="badge">AUTO WEBSITE</div>
+
+  <h1>Get Your ID Now</h1>
+
+  <p class="sub">
+    Fast auto website service with easy deposit support.
+    New users can start quickly through WhatsApp.
+  </p>
+
+  <div class="features">
+
+    <div class="feature">
+      Minimum Deposit: <span>₹100 Only</span>
     </div>
-    <a href="#pricing" class="btn btn-green">Find Your Membership →</a>
-  </div>
-</section>
 
-<section class="pricing" id="pricing">
-  <div class="section-head">
-    <div><div class="kicker">03 / MEMBERSHIP</div><h2>YOUR NEXT LEVEL.</h2></div>
-    <p>Choose a plan that matches your goals. Start where you are and build from there.</p>
-  </div>
-  <div class="plans">
-    <article class="plan">
-      <div class="plan-label">STARTER</div><h3>Essential</h3>
-      <div class="price">$39<small> / month</small></div>
-      <ul><li>Gym floor access</li><li>Locker facilities</li><li>Fitness assessment</li><li>Group classes access</li></ul>
-      <a href="mailto:hello@example.com?subject=Essential%20Membership" class="btn">Choose Essential</a>
-    </article>
-    <article class="plan featured">
-      <div class="plan-label">MOST POPULAR</div><h3>Performance</h3>
-      <div class="price">$69<small> / month</small></div>
-      <ul><li>Everything in Essential</li><li>Unlimited group classes</li><li>Monthly coach check-in</li><li>Personal progress plan</li></ul>
-      <a href="mailto:hello@example.com?subject=Performance%20Membership" class="btn btn-green">Choose Performance</a>
-    </article>
-    <article class="plan">
-      <div class="plan-label">PREMIUM</div><h3>Elite</h3>
-      <div class="price">$99<small> / month</small></div>
-      <ul><li>Everything in Performance</li><li>Personal training session</li><li>Priority class booking</li><li>Recovery session access</li></ul>
-      <a href="mailto:hello@example.com?subject=Elite%20Membership" class="btn">Choose Elite</a>
-    </article>
-  </div>
-</section>
-
-<section class="bmi" id="bmi">
-  <div>
-    <div class="kicker">04 / KNOW YOUR NUMBERS</div>
-    <h2>CHECK YOUR<br>BODY MASS INDEX.</h2>
-    <p style="color:#687267;line-height:1.8;margin-top:20px;font-size:14px">Enter your height and weight to calculate your BMI. This is a general screening measure, not a medical diagnosis or a complete measure of health.</p>
-  </div>
-  <div class="bmi-box">
-    <div class="field"><label for="height">HEIGHT (CM)</label><input id="height" type="number" placeholder="e.g. 175" min="50" max="250"></div>
-    <div class="field"><label for="weight">WEIGHT (KG)</label><input id="weight" type="number" placeholder="e.g. 72" min="10" max="500"></div>
-    <button class="btn btn-green" style="width:100%" onclick="calculateBMI()">CALCULATE BMI →</button>
-    <div class="bmi-result" id="result" aria-live="polite">
-      <div style="font-size:11px;font-weight:800;color:#687267">YOUR BMI</div>
-      <strong id="bmiNumber">--</strong>
-      <div id="bmiStatus" style="font-size:13px;margin-top:5px"></div>
-      <small style="display:block;margin-top:10px;color:#687267">Adult BMI categories are general screening ranges and may not apply to everyone.</small>
+    <div class="feature">
+      Welcome Bonus: <span>10%</span>
     </div>
-  </div>
-</section>
 
-<footer>
-  <a href="#" class="logo">AURA<span style="color:#b8f36b">.</span></a>
-  <p>© 2026 AURA PERFORMANCE. TRAIN WITH PURPOSE.</p>
-  <p>Instagram · Facebook · YouTube</p>
-</footer>
+    <div class="feature">
+      Auto Website Support:
+      <a
+        class="signup-btn"
+        href="https://ballysbat.com/clk?src=MtH8kmxgY"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Click on Signup
+      </a>
+    </div>
+
+    <div class="feature">
+      Quick Help:
+      <span>Deposit &amp; Withdrawal Support</span>
+    </div>
+
+  </div>
+
+  <div class="website-row">
+
+    <a
+      class="website"
+      href="https://ballysbat.com/clk?src=MtH8kmxgY"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      🌐 https://ballysbat.com/clk?src=MtH8kmxgY
+    </a>
+
+    <a
+      class="whatsapp-small"
+      href="https://wa.me/+447598835889"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      💬 WhatsApp
+    </a>
+
+  </div>
+
+  <a
+    class="cta"
+    href="https://wa.me/+447598835889?text=Hello%20I%20want%20new%20ballys%20ID"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    📲 WhatsApp Now
+  </a>
+
+  <p class="trust">
+    ✅ Trusted ballys Support<br>
+    ✅ Simple Process<br>
+    ✅ Fast Response
+  </p>
+
+  <div class="footer">
+    18+ Only | Play Responsibly | Follow Your Local Laws | T&amp;C Apply
+  </div>
+
+</div>
+
+  </div>
+
+</div>
 
 <script>
-function toggleMenu(){
-  document.getElementById('navlinks').classList.toggle('open');
-}
-function closeMenu(){
-  document.getElementById('navlinks').classList.remove('open');
-}
-function calculateBMI(){
-  const height=Number(document.getElementById('height').value);
-  const weight=Number(document.getElementById('weight').value);
-  const result=document.getElementById('result');
+const bonusPopup = document.getElementById('bonusPopup');
+const bonusClose = document.getElementById('bonusClose');
 
-  if(!height||!weight||height<50||height>250||weight<10||weight>500){
-    alert('Please enter a valid height and weight.');
-    return;
-  }
-  const bmi=weight/((height/100)**2);
-  let status='';
-  if(bmi<18.5) status='Below the usual adult BMI range';
-  else if(bmi<25) status='Within the usual adult BMI range';
-  else if(bmi<30) status='Above the usual adult BMI range';
-  else status='In the high adult BMI range';
-
-  document.getElementById('bmiNumber').textContent=bmi.toFixed(1);
-  document.getElementById('bmiStatus').textContent=status;
-  result.style.display='block';
+function closeBonusPopup(){
+  bonusPopup.hidden = true;
 }
+
+bonusClose.addEventListener('click', closeBonusPopup);
+bonusPopup.addEventListener('click', (event) => {
+  if(event.target === bonusPopup) closeBonusPopup();
+});
+document.addEventListener('keydown', (event) => {
+  if(event.key === 'Escape') closeBonusPopup();
+});
 </script>
+
 </body>
 </html>
-```
